@@ -1,0 +1,11 @@
+runtime: python39
+
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  GCS_BUCKET_NAME: "model-bucket-iris3"
+  GCS_FILE_NAME: "flower-v1.pkl"
+
+handlers:
+- url: /api_predict
+  script: auto
